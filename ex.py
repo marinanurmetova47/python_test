@@ -19,6 +19,29 @@ def start_tick():
     tick()
 
 
+def stop_tick():
+    btnStop.pack_forget()
+    btnContinue.pack()
+    btnReset.pack()
+    root.after_cancel(after_id)
+
+
+def continue_tick():
+    btnContinue.pack_forget()
+    btnReset.pack_forget()
+    btnStop.pack()
+    tick()
+
+
+def reset_tick():
+    global temp
+    temp = 0
+    label1.configure(text='00:00')
+    btnContinue.pack_forget()
+    btnReset.pack_forget()
+    btnStart.pack()
+
+
 root = Tk()
 root.title('секундомер')
 root.resizable(width=False, height=False)
@@ -30,9 +53,9 @@ label1.pack()
 
 
 btnStart = Button(root, width=15, font=20, text='START', command=start_tick)
-btnStop = Button(root, width=15, font=20, text='STOP')
-btnContinue = Button(root, width=15, font=20, text='CONTINUE')
-btnReset = Button(root, width=15, font=20, text='RESET')
+btnStop = Button(root, width=15, font=20, text='STOP', command=stop_tick)
+btnContinue = Button(root, width=15, font=20, text='CONTINUE', command=continue_tick)
+btnReset = Button(root, width=15, font=20, text='RESET', command=reset_tick)
 btnStart.pack()
 
 

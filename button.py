@@ -51,6 +51,22 @@ def stop_tick():
     win.after_cancel(after_id)
 
 
+def continue_tick():
+    btn_3.pack_forget()
+    btn_4.pack_forget()
+    btn_2.pack()
+    tick()
+
+
+def reset_tick():
+    global temp
+    temp = 0
+    label_5.configure(text='00:00')
+    btn_3.pack_forget()
+    btn_4.pack_forget()
+    btn_1.pack()
+
+
 #def random_color():
 #    colors = ['white', 'red', 'orange', 'yellow', 'lime', 'green', 'violet', 'pink']
 #    btn_1['bg'] = random.choice(colors)       # случайный цвет фона кнопки
@@ -95,19 +111,18 @@ btn_2 = tk.Button(win,
                   )
 
 
-
 btn_3 = tk.Button(win,
                   text='continue',
-                  bg='white'
+                  bg='white',
+                  command=continue_tick
                   )
-
 
 
 btn_4 = tk.Button(win,
                   text='RESET',
-                  bg='white'
+                  bg='white',
+                  command=reset_tick
                   )
-
 
 
 label_2 = tk.Label(win,
