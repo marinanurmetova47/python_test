@@ -33,7 +33,7 @@ def color_bg():                              # функция изменения
 def tick():
     global temp, after_id
     after_id = win.after(1000, tick)
-    f_temp = datetime.fromtimstamp(temp).strftime('%M:%S')
+    f_temp = datetime.fromtimestamp(temp).strftime('%M:%S')
     label_5.configure(text=str(f_temp))
     temp += 1
 
@@ -91,7 +91,7 @@ btn_2 = tk.Button(win,
                   text='STOP',
                   bg='white',
                   activebackground='grey',
-                  command=stop_tick()
+                  command=stop_tick
                   )
 
 
