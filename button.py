@@ -12,10 +12,10 @@ def press_button():
     print('button is pressed')
 
 
-def click_counter():                      # функция подсчета нажатий на кнопку
-    global count
-    count += 1
-    label_3.configure(text=count)
+# def click_counter():                      # функция подсчета нажатий на кнопку
+#     global count
+#     count += 1
+#     label_3.configure(text=count)
 
 
 def change_label():                            # функция изменения надписи и цвета label
@@ -98,7 +98,7 @@ btn_1 = tk.Button(win,
                   text='START',
                   bg='white',
                   activebackground='grey',
-                  command=lambda:[change_label(), color_bg(), click_counter(), start_tick()]
+                  command=lambda:[change_label(), color_bg(), start_tick()]
                   )
 btn_1.pack()
 
@@ -107,36 +107,36 @@ btn_2 = tk.Button(win,
                   text='STOP',
                   bg='white',
                   activebackground='grey',
-                  command=stop_tick
+                  command=lambda:[stop_tick(), color_bg()]
                   )
 
 
 btn_3 = tk.Button(win,
                   text='continue',
                   bg='white',
-                  command=continue_tick
+                  command=lambda:[continue_tick(), color_bg()]
                   )
 
 
 btn_4 = tk.Button(win,
                   text='RESET',
                   bg='white',
-                  command=reset_tick
+                  command=lambda:[reset_tick(), color_bg()]
                   )
 
 
-label_2 = tk.Label(win,
-                   text='total number of clicks on the button',
-                   font='Arial 10 bold'
-                   )
-label_2.pack()
+# label_2 = tk.Label(win,
+#                    text='total number of clicks on the button',
+#                    font='Arial 10 bold'
+#                    )
+# label_2.pack()
 
 
-label_3 = tk.Label(win,
-                   text='0',
-                   font='Arial 20 bold'
-                   )
-label_3.pack()
+# label_3 = tk.Label(win,
+#                    text='0',
+#                    font='Arial 20 bold'
+#                    )
+# label_3.pack()
 
 
 label_4 = tk.Label(win,
